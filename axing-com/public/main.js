@@ -22,9 +22,10 @@ function jsonp(url) {
   });
 }
 
-const url = '124.222.140.99'
+const url = 'http://qq.com:8880/'
+// const url = '124.222.140.99'
 getJS.onclick = () => {
-  jsonp(`${url}:8880/2.js`).then(data => {
+  jsonp(url+'2.js').then(data => {
     console.log(data);
   });
   // console.log('ISON get 2.js');
@@ -35,8 +36,9 @@ getJS.onclick = () => {
 getJSON.onclick = () => {
   console.log('CROS get json');
   const request = new XMLHttpRequest();
-  request.open("GET", `${url}:8880/5.json`);
+  request.open("GET", url + '5.json');
   request.onreadystatechange = () => {
+    console.log(request.readyState)
     if (request.readyState === 4 && request.status === 200) {
       console.log(JSON.parse(request.response))
       const json = JSON.parse(request.response)
