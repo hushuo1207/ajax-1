@@ -1,0 +1,3 @@
+window.xxx = {
+  "hehe": "jeje"
+}
