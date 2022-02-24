@@ -50,45 +50,9 @@ getHTML.onclick = () => {
 
   request.send();  // request.readyState = 2
 }
-getJS.onclick = () => {
-  const request = new XMLHttpRequest();
-  request.open("GET", "/2.js");
-  request.onreadystatechange = () => {
-    console.log(request.readyState);
-    if (request.readyState === 4) {  // request.readyState = 3  start  download & loading
-      console.log('下载完成');       // request.readyState = 4    download finish
-      if(request.status >= 200 && request.status < 300){
-        console.log('request.response');
-        console.log(request.response);
-        //创建 script 标签
-        const script = document.createElement("script");
-        // 填写 script 内容
-        script.innerText = request.response;
-        // 插到body里面
-        document.body.appendChild(script);
-      }else {
-        alert("加载JS 失败")
-      }
-    }
-  }
-  // request.onload = () => {
-  //   console.log('request.response');
-  //   console.log(request.response);
-  //   //创建 script 标签
-  //   const script = document.createElement("script");
-  //   // 填写 script 内容
-  //   script.innerText = request.response;
-  //   // 插到body里面
-  //   document.body.appendChild(script);
-  // }
-  // request.onerror = () => {
-  //   console.log('error js');
-  // }
-  request.send();
-}
-// getCSS.onclick = () => {
+// getJS.onclick = () => {
 //   const request = new XMLHttpRequest();
-//   request.open("GET", "/style.css");
+//   request.open("GET", "/2.js");
 //   request.onreadystatechange = () => {
 //     console.log(request.readyState);
 //     if (request.readyState === 4) {  // request.readyState = 3  start  download & loading
@@ -96,18 +60,54 @@ getJS.onclick = () => {
 //       if(request.status >= 200 && request.status < 300){
 //         console.log('request.response');
 //         console.log(request.response);
-//         //创建 style 标签
-//         const style = document.createElement("style");
-//         // 填写 style 内容
-//         style.innerHTML = request.response;
-//         // 插到头里面
-//         document.head.appendChild(style);
+//         //创建 script 标签
+//         const script = document.createElement("script");
+//         // 填写 script 内容
+//         script.innerText = request.response;
+//         // 插到body里面
+//         document.body.appendChild(script);
 //       }else {
-//         alert("error css")
+//         alert("加载JS 失败")
 //       }
 //     }
 //   }
+//   // request.onload = () => {
+//   //   console.log('request.response');
+//   //   console.log(request.response);
+//   //   //创建 script 标签
+//   //   const script = document.createElement("script");
+//   //   // 填写 script 内容
+//   //   script.innerText = request.response;
+//   //   // 插到body里面
+//   //   document.body.appendChild(script);
+//   // }
+//   // request.onerror = () => {
+//   //   console.log('error js');
+//   // }
 //   request.send();
 // }
-//
+getCSS.onclick = () => {
+  const request = new XMLHttpRequest();
+  request.open("GET", "/style.css");
+  request.onreadystatechange = () => {
+    console.log(request.readyState);
+    if (request.readyState === 4) {  // request.readyState = 3  start  download & loading
+      console.log('下载完成');       // request.readyState = 4    download finish
+      if(request.status >= 200 && request.status < 300){
+        console.log('request.response');
+        console.log(request.response);
+        //创建 style 标签
+        const style = document.createElement("style");
+        // 填写 style 内容
+        style.innerHTML = request.response;
+        // 插到头里面
+        document.head.appendChild(style);
+      }else {
+        alert("error css")
+      }
+    }
+  }
+  request.send();
+}
+
 
