@@ -50,6 +50,8 @@ getHTML.onclick = () => {
 
   request.send();  // request.readyState = 2
 }
+
+
 // getJS.onclick = () => {
 //   const request = new XMLHttpRequest();
 //   request.open("GET", "/2.js");
