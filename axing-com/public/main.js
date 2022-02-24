@@ -22,7 +22,7 @@ function jsonp(url) {
   });
 }
 
-const url = 'http://124.222.140.99'
+const url = '124.222.140.99'
 getJS.onclick = () => {
   jsonp(`${url}:8880/2.js`).then(data => {
     console.log(data);
