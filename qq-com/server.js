@@ -43,9 +43,6 @@ var server = http.createServer(function(request, response){
     response.write(fs.readFileSync('public/style.css'))
     response.end()
   } else if(path === '/2.js'){
-
-
-
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
     const string = `window['{{xxx}}']({{data}}) `
@@ -53,12 +50,6 @@ var server = http.createServer(function(request, response){
     const string2 = string.replace("{{data}}", data).replace('{{xxx}}', query.callback);
     response.write(string2);
     response.end()
-
-
-
-
-
-
   } else if(path === '/3.html'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
